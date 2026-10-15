@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <!-- Define a codificação dos caracteres -->
+    <meta charset="UTF-8">
+
+    <!-- Adapta a página para celulares e outros dispositivos -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Nome que aparece na aba do navegador -->
+    <title>Entrar — Sabor SL</title>
+
+    <!-- Conecta o arquivo de estilos do site -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="pagina-login">
+
+    <div class="aplicacao">
+
+        <!-- Barra lateral de navegação -->
+        <aside class="barra-lateral">
+
+            <!-- Logo do Sabor SL -->
+            <div class="logo-lateral">
+                <img
+                    class="imagem-logo-lateral"
+                    src="img/logo.png"
+                    alt="Logo Sabor SL Delivery"
+                >
+            </div>
+
+            <!-- Links de navegação -->
+            <nav class="navegacao">
+
+                <a href="principal.html">
+                    <span class="icone-navegacao">🏠</span>
+                    <span>Início</span>
+                </a>
+
+                <a href="buscar.html">
+                    <span class="icone-navegacao">⌕</span>
+                    <span>Buscar</span>
+                </a>
+
+                <a href="perfil.html">
+                    <span class="icone-navegacao">👤</span>
+                    <span>Perfil</span>
+                </a>
+                
+                <a href="configuracoes.html">
+                    <span class="icone-navegacao">⚙</span>
+                    <span>Configurações</span>
+                </a>
+
+            </nav>
+
+            <!-- Informações sobre a área de entrega -->
+            <div class="entrega">
+                <div class="titulo-entrega">
+                    <span>🛵</span>
+                    <strong>Delivery local</strong>
+                </div>
+
+                <span>Santa Luzia - PB</span>
+            </div>
+
+        </aside>
+
+        <!-- Conteúdo principal da página -->
+        <main class="principal">
+
+            <!-- Barra superior com botão de voltar -->
+            <div class="barra-superior">
+                <a class="voltar" href="perfil.html">
+                    ← Voltar
+                </a>
+            </div>
+
+            <!-- Área de login e cadastro -->
+            <section class="pagina-conta">
+
+                <h1>Bem-vindo ao Sabor SL!</h1>
+
+                <p>
+                    Entre ou crie sua conta para ter uma experiência
+                    mais personalizada.
+                </p>
+
+                <!-- Formulário de acesso -->
+                <div class="modos-conta" role="group" aria-label="Escolha entre entrar ou criar conta">
+                    <button type="button" id="modo-entrar" class="modo-conta ativo">Entrar</button>
+                    <button type="button" id="modo-cadastro" class="modo-conta">Criar conta</button>
+                </div>
+
+                <form id="form-login" class="formulario-conta" data-modo="entrar">
+
+                    <!-- Campo para o nome do usuário -->
+                    <label for="nome-conta">
+                        Seu nome
+
+                        <input
+                            id="nome-conta"
+                            name="nome"
+                            type="text"
+                            autocomplete="name"
+                            placeholder="Digite seu nome"
+                            hidden
+                        >
+                    </label>
+
+                    <!-- Campo para o e-mail -->
+                    <label for="email-conta">
+                        E-mail
+
+                        <input
+                            id="email-conta"
+                            name="email"
+                            type="email"
+                            autocomplete="email"
+                            placeholder="voce@email.com"
+                            required
+                        >
+                    </label>
+
+                    <!-- Campo para a senha -->
+                    <label for="senha-conta">
+                        Senha
+
+                        <input
+                            id="senha-conta"
+                            name="senha"
+                            type="password"
+                            autocomplete="current-password"
+                            minlength="4"
+                            placeholder="Mínimo de 4 caracteres"
+                            required
+                        >
+                    </label>
+
+                    <!-- Botão para enviar o formulário -->
+                    <button id="enviar-conta" class="botao-verde" type="submit">
+                        Entrar
+                    </button>
+
+                    <!-- Opção para acessar o site sem login -->
+                    <a class="link-conta" href="principal.html">
+                        Continuar sem login
+                    </a>
+
+                    <!-- Mensagem de retorno do JavaScript -->
+                    <p
+                        id="mensagem-login"
+                        class="mensagem-conta"
+                        role="status"
+                        aria-live="polite"
+                        hidden
+                    ></p>
+
+                </form>
+
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- Conecta o JavaScript externo responsável pelo login -->
+    <script src="js/login.js" defer></script>
+
+</body>
+</html>

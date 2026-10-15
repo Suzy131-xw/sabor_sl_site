@@ -1,0 +1,1386 @@
+/* CONFIGURAÇÕES GERAIS */
+
+/* Aqui ficam as principais cores utilizadas no site.
+   As variáveis facilitam a alteração das cores,
+   pois podemos reutilizá-las em várias partes do CSS. */
+:root {
+    --green: #004d32;
+    --green2: #006b45;
+    --light: #f4f8f5;
+    --line: #e5ebe7;
+    --text: #17201c;
+    --muted: #6d7772;
+}
+
+
+/* CORPO DA PÁGINA */
+
+/* Define a fonte principal, a cor de fundo
+   e a cor padrão dos textos de toda a página. */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f7f9f8;
+    color: var(--text);
+}
+
+/* Retira o sublinhado dos links e faz com que
+   eles utilizem a mesma cor definida para o conteúdo. */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Deixa os botões com a mesma configuração de fonte
+   usada no restante da página e retira a borda padrão.
+   O cursor muda para indicar que o botão pode ser clicado. */
+button {
+    font: inherit;
+    border: 0;
+    cursor: pointer;
+}
+
+
+/* ESTRUTURA PRINCIPAL */
+
+/* BARRA LATERAL */
+
+/* A barra lateral fica presa no lado esquerdo da tela.
+   O top, left e bottom fazem com que ela ocupe
+   toda a altura disponível.
+   O z-index mantém a barra acima dos outros elementos. */
+.barra-lateral {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+
+    width: 185px;
+
+    background: #ffffff;
+    border-right: 1px solid var(--line);
+
+    padding: 24px 16px;
+
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+
+    z-index: 1000;
+}
+
+
+/* LOGO DA BARRA LATERAL */
+
+/* Organiza a logo no centro da barra lateral
+   e cria um espaço entre ela e o menu. */
+.logo-lateral {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 30px;
+}
+
+/* Define o tamanho da imagem da logo
+   e mantém suas proporções para evitar deformações. */
+.imagem-logo-lateral {
+    width: 100px;
+    height: 100px;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+
+/* MENU DE NAVEGAÇÃO */
+
+/* Organiza as opções do menu uma abaixo da outra
+   e cria um pequeno espaço entre elas. */
+.navegacao {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+/* Cada link do menu ocupa toda a largura disponível.
+   O display flex permite organizar o ícone e o texto
+   lado a lado de forma alinhada. */
+.navegacao a {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 10px 12px;
+
+    box-sizing: border-box;
+
+    border-radius: 8px;
+
+    font-size: 12px;
+
+    color: var(--text);
+
+    transition: background 0.2s ease;
+}
+
+/* Reserva um pequeno espaço para os ícones
+   e mantém cada ícone centralizado dentro dele. */
+.icone-navegacao {
+    width: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 17px;
+}
+
+/* Quando o usuário passa o mouse por uma opção,
+   o fundo muda levemente para mostrar que ela é interativa. */
+.navegacao a:hover {
+    background: #eef3f0;
+}
+
+/* Mostra visualmente qual página está selecionada
+   no momento, usando uma cor de fundo diferente
+   e deixando o texto em negrito. */
+.navegacao a.ativo {
+    background: #eef3f0;
+    color: var(--green);
+    font-weight: 700;
+}
+
+
+/* INFORMAÇÃO DE DELIVERY */
+
+/* Cria uma área separada para mostrar
+   informações relacionadas à entrega.
+   A borda superior ajuda a separar essa parte do menu. */
+.entrega {
+    width: 100%;
+
+    margin-top: 25px;
+    padding-top: 18px;
+
+    border-top: 1px solid var(--line);
+
+    box-sizing: border-box;
+
+    font-size: 11px;
+
+    color: var(--muted);
+}
+
+/* Coloca o ícone e o título do delivery
+   lado a lado e mantém os dois centralizados. */
+.titulo-entrega {
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+
+    margin-bottom: 5px;
+
+    color: var(--text);
+}
+
+/* Organiza o nome da cidade abaixo do título
+   e cria um pequeno espaço à esquerda para alinhamento. */
+.entrega > span {
+    display: block;
+
+    padding-left: 25px;
+
+    line-height: 1.4;
+}
+
+
+/* CONTEÚDO PRINCIPAL */
+
+/* A área principal fica ao lado da barra lateral.
+   A posição relativa também permite que outros elementos
+   sejam posicionados em relação a ela. */
+.principal {
+    position: relative;
+
+    margin-left: 185px;
+
+    width: calc(100% - 185px);
+
+    min-height: 100vh;
+
+    padding: 20px 24px;
+
+    box-sizing: border-box;
+}
+
+
+/* ÁREA PRINCIPAL DO SITE */
+
+/* Define a estrutura geral da aplicação.
+   O position relative cria uma referência para
+   elementos que precisem ser posicionados dentro dela. */
+.aplicacao {
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Mantém o conteúdo principal afastado da barra lateral,
+   evitando que uma parte da página fique escondida atrás dela. */
+.principal {
+    position: relative;
+    margin-left: 185px;
+    width: calc(100% - 185px);
+    min-height: 100vh;
+    padding: 20px 24px;
+    box-sizing: border-box;
+}
+
+
+/* LOGOS INTERNAS */
+
+/* Organiza a logo e o nome lado a lado
+   e cria um espaço entre os dois elementos. */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    margin: 0 10px 30px;
+}
+
+/* Cria a pequena caixa usada como parte visual da logo.
+   O border-radius deixa os cantos arredondados. */
+.caixa-logo {
+    width: 38px;
+    height: 35px;
+    background: var(--green);
+    color: white;
+    border-radius: 8px;
+    display: grid;
+    place-items: center;
+    font-size: 18px;
+}
+
+/* Ajusta o texto menor que aparece junto à logo,
+   deixando-o mais discreto que o nome principal. */
+.logo small {
+    display: block;
+    color: #777;
+    font-weight: 400;
+    font-size: 9px;
+    margin-top: 3px;
+}
+
+
+/* BARRA SUPERIOR */
+
+/* Organiza os elementos que ficam no topo da página.
+   O espaço entre eles permite deixar uma informação
+   de cada lado da barra. */
+.barra-superior {
+    height: 42px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 18px;
+}
+
+
+/* LOCALIZAÇÃO */
+
+/* Define o tamanho pequeno do texto
+   usado para apresentar a localização. */
+.localizacao {
+    font-size: 11px;
+}
+
+
+/* NOME DA CIDADE */
+
+/* Faz o nome da cidade aparecer em uma nova linha
+   e dá um pequeno destaque ao texto. */
+.localizacao b {
+    display: block;
+    font-size: 12px;
+    margin-top: 3px;
+}
+
+
+/* ÁREA DOS BOTÕES SUPERIORES */
+
+/* Coloca os botões da parte superior lado a lado
+   com um pequeno espaço entre eles. */
+.acoes {
+    display: flex;
+    gap: 8px;
+}
+
+
+/* BOTÕES ARREDONDADOS */
+
+/* Define o visual dos botões de status,
+   usando fundo claro e cantos arredondados. */
+.botao-status {
+    background: #eef3f0;
+    padding: 9px 13px;
+    border-radius: 9px;
+    font-size: 11px;
+}
+
+
+/* BANNER PRINCIPAL */
+
+/* O position relative cria uma área de referência
+   para a imagem que será posicionada dentro do banner.
+   O z-index ajuda a controlar a ordem dos elementos. */
+.destaque {
+    position: relative;
+    z-index: 1;
+    height: 207px;
+    border-radius: 15px;
+
+    background: linear-gradient(100deg, #004d32, #006441);
+
+    color: #fff;
+    padding: 28px 22px;
+
+    overflow: hidden;
+}
+
+
+/* TÍTULO DO BANNER */
+
+/* Aumenta o destaque do título e limita sua largura
+   para que ele fique bem organizado dentro do banner. */
+.destaque h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 27px;
+    max-width: 310px;
+    line-height: 1.05;
+    margin-bottom: 12px;
+}
+
+
+/* TEXTO DO BANNER */
+
+/* Controla o tamanho e o espaçamento do texto
+   apresentado abaixo do título. */
+.destaque p {
+    font-size: 12px;
+    line-height: 1.5;
+    max-width: 320px;
+}
+
+
+/* BOTÃO PRINCIPAL */
+
+/* Deixa o link com aparência de botão,
+   criando destaque para a ação principal do banner. */
+.destaque .chamada-acao {
+    display: inline-block;
+    margin-top: 16px;
+
+    background: #fff;
+    color: #174d39;
+
+    padding: 11px 16px;
+    border-radius: 8px;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+
+/* IMAGEM DO BANNER */
+/* A imagem fica posicionada dentro do banner, mantendo o formato original. */
+.imagem-destaque {
+    position: absolute;
+    right: -15px;
+    top: 0;
+    height: 109%;
+    width: 50%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50% 0 0 50%;
+    opacity: .95;
+}
+
+/* LOGIN: a página de entrada fica limpa, sem menu lateral. */
+.pagina-login .barra-lateral { display: none; }
+.pagina-login .aplicacao { display: block; }
+.pagina-login .principal { width: 100%; margin-left: 0; }
+.pagina-login .barra-superior { max-width: 760px; margin: 0 auto; }
+.pagina-login .pagina-conta { max-width: 600px; margin: 30px auto; }
+
+/* Perfil: informações maiores e favoritos na mesma página. */
+.perfil-informacoes { padding: 32px; margin-top: 20px; }
+.perfil-informacoes h2 { font-size: 25px; margin-top: 0; margin-bottom: 24px; }
+.perfil-campo { padding: 15px 0; border-bottom: 1px solid #e5ece7; }
+.perfil-campo strong { display: block; color: #315b45; font-size: 15px; margin-bottom: 7px; }
+.perfil-campo p { font-size: 19px; line-height: 1.6; margin: 0; overflow-wrap: anywhere; }
+.perfil-entrar { display: inline-block; margin-top: 24px; text-decoration: none; }
+.secao-favoritos-perfil { margin-top: 30px; }
+.secao-favoritos-perfil h2 { font-size: 25px; }
+.descricao-perfil { font-size: 16px; color: #6d7772; }
+.aviso-favoritos { padding: 20px; background: #f4f8f5; border-radius: 10px; font-size: 16px; }
+
+/* TÍTULOS */
+
+/* Define o tamanho e o espaçamento padrão
+   dos títulos de segundo nível da página. */
+h2 {
+    font-size: 18px;
+    margin: 24px 0 14px;
+}
+
+
+/* CATEGORIAS E CARDS */
+
+/* Organiza as categorias e os cartões em uma grade.
+   As quatro colunas deixam os elementos distribuídos
+   de maneira uniforme na página. */
+.categorias,
+.cartoes {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+
+/* CARD DAS CATEGORIAS */
+
+/* Cria o visual de cada categoria,
+   com fundo branco, borda discreta e cantos arredondados. */
+.categoria {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+
+    padding: 16px;
+    min-height: 70px;
+    display: block;
+    transition: background .2s ease, border-color .2s ease, transform .2s ease;
+}
+
+/* Ao passar o mouse, a categoria fica verde-clara. */
+.categoria:hover, .categoria:focus-visible {
+    background: #dff5e6;
+    border-color: #a8d9b7;
+    transform: translateY(-2px);
+}
+
+
+/* NOME DA CATEGORIA */
+
+/* Destaca o nome da categoria
+   e faz com que ele fique separado da descrição. */
+.categoria strong {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 12px;
+    display: block;
+}
+
+
+/* DESCRIÇÃO DA CATEGORIA */
+
+/* Deixa a descrição menor e com uma cor mais suave
+   para diferenciá-la do nome da categoria. */
+.categoria span {
+    font-size: 10px;
+    color: var(--muted);
+}
+
+
+/* ÍCONE DA CATEGORIA */
+
+/* Aumenta o tamanho do ícone e faz com que
+   o texto da categoria fique organizado ao seu lado. */
+.categoria .icone {
+    font-size: 23px;
+    float: left;
+    margin-right: 12px;
+}
+
+
+/* CARDS DOS ESTABELECIMENTOS */
+/* Grade flexível: mantém os cartões alinhados e de tamanho consistente. */
+.cartoes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 18px;
+    align-items: stretch;
+}
+
+/* Cartão com foto circular e informações abaixo, como no modelo enviado. */
+.cartao {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 0;
+    min-height: 220px;
+    padding: 16px 14px 14px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 2px 8px rgba(20, 45, 30, 0.05);
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.cartao:hover,
+.cartao:focus-visible {
+    transform: translateY(-3px);
+    border-color: #b7d9c2;
+    box-shadow: 0 7px 18px rgba(20, 45, 30, 0.10);
+}
+
+/* Foto redonda, centralizada e com tamanho padronizado. */
+.cartao > img {
+    display: block;
+    width: 112px;
+    height: 112px;
+    min-width: 112px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    margin: 0 auto 12px;
+    border: 3px solid #f0f5f1;
+}
+
+/* Informações alinhadas abaixo da foto. */
+.corpo-cartao {
+    width: 100%;
+    flex: 1;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cartao h3 {
+    width: 100%;
+    margin: 0 0 5px;
+    font-size: 14px;
+    line-height: 1.35;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+.cartao p {
+    width: 100%;
+    margin: 0 0 8px;
+    font-size: 12px;
+    line-height: 1.4;
+    color: var(--muted);
+}
+
+.informacoes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px 10px;
+    margin-top: auto;
+    font-size: 11px;
+    line-height: 1.4;
+    color: #555;
+}
+
+.estrela {
+    color: #f0a500;
+}
+
+@media (max-width: 900px) {
+    .cartoes {
+        grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
+        gap: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cartoes {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .cartao {
+        min-height: 205px;
+        padding: 12px 9px;
+    }
+
+    .cartao > img {
+        width: 88px;
+        height: 88px;
+        min-width: 88px;
+        margin-bottom: 10px;
+    }
+
+    .cartao h3 { font-size: 12px; }
+    .cartao p { font-size: 11px; }
+    .informacoes { font-size: 10px; }
+}
+
+
+/* FAIXA DE INFORMAÇÕES */
+
+/* Cria uma área com informações complementares.
+   O grid divide o espaço em três partes iguais,
+   facilitando a organização dos conteúdos. */
+.faixa-informativa {
+    margin-top: 20px;
+    background: #eef6f0;
+    border-radius: 10px;
+    padding: 20px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+
+    font-size: 10px;
+}
+
+
+/* TÍTULO DAS INFORMAÇÕES */
+
+/* Faz o título aparecer em uma linha própria
+   e deixa um pequeno espaço antes da descrição. */
+.faixa-informativa b {
+    display: block;
+    font-size: 10px;
+    margin-bottom: 3px;
+}
+
+
+/* TEXTO DAS INFORMAÇÕES */
+
+/* Usa uma cor mais clara para diferenciar
+   a descrição do título. */
+.faixa-informativa span {
+    color: #66716c;
+}
+
+
+/* CAMPO DE BUSCA */
+
+/* Cria a aparência do campo de pesquisa,
+   deixando-o parecido com uma caixa de entrada. */
+.caixa-busca {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 9px;
+
+    padding: 11px 13px;
+    margin: 10px 0 12px;
+
+    color: #8a928e;
+    font-size: 11px;
+
+    display: flex;
+    align-items: center;
+}
+
+/* Faz o campo de texto ocupar o espaço disponível na caixa de busca. */
+.caixa-busca input {
+    width: 100%;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: var(--text);
+    font: inherit;
+}
+
+.caixa-busca label {
+    margin-right: 8px;
+    font-size: 16px;
+}
+
+.caixa-busca button {
+    padding: 7px 11px;
+    border-radius: 6px;
+    background: var(--green);
+    color: #fff;
+    font-size: 10px;
+}
+
+.caixa-busca:focus-within {
+    border-color: var(--green2);
+}
+
+
+/* FILTROS DE PESQUISA */
+
+/* Organiza os filtros lado a lado
+   e cria um pequeno espaço entre cada opção. */
+.filtros {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+
+/* BOTÃO DE FILTRO */
+
+/* Define o formato dos filtros,
+   deixando as opções com bordas arredondadas. */
+.filtro {
+    padding: 8px 13px;
+
+    border: 1px solid #dfe5e1;
+    border-radius: 20px;
+
+    background: #fff;
+    font-size: 10px;
+    color: var(--text);
+}
+
+.filtro:hover {
+    cursor: pointer;
+}
+
+
+/* FILTRO SELECIONADO */
+
+/* Mostra qual filtro está selecionado
+   usando a cor verde principal e texto branco. */
+.filtro.ativo {
+    background: var(--green);
+    color: #fff;
+}
+
+
+/* PÁGINA DO RESTAURANTE */
+
+/* Cria o bloco principal com as informações
+   do restaurante e mantém os conteúdos organizados. */
+.restaurante {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+
+    overflow: hidden;
+    margin-bottom: 18px;
+}
+
+
+/* IMAGEM PRINCIPAL DO RESTAURANTE */
+
+/* Define o tamanho da imagem de capa
+   e evita que ela fique deformada. */
+.capa-restaurante {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+}
+
+
+/* INFORMAÇÕES DO RESTAURANTE */
+
+/* Organiza as informações do restaurante
+   deixando os dados de um lado e as ações do outro. */
+.informacoes-restaurante {
+    padding: 25px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* NOME DO RESTAURANTE */
+
+/* Ajusta o tamanho do título para que ele
+   fique proporcional ao restante das informações. */
+.informacoes-restaurante h1 {
+    font-size: 19px;
+}
+
+
+/* DESCRIÇÃO */
+
+/* Deixa a descrição menor e com uma cor suave,
+   para não chamar mais atenção que o nome. */
+.informacoes-restaurante p {
+    font-size: 11px;
+    color: var(--muted);
+    margin: 5px 0;
+}
+
+
+/* TELEFONE */
+
+/* Destaca o número de contato para que
+   ele seja facilmente identificado na página. */
+.telefone {
+    padding: 7px 7px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+
+/* ETIQUETAS */
+
+/* Organiza as pequenas informações
+   do restaurante lado a lado. */
+.etiquetas {
+    display: flex;
+    gap: 7px;
+}
+
+
+/* CADA INFORMAÇÃO */
+
+/* Cria pequenas etiquetas para apresentar
+   informações de maneira organizada e compacta. */
+.etiqueta {
+    font-size: 9px;
+    border: 1px solid var(--line);
+
+    padding: 4px 9px;
+    border-radius: 7px;
+}
+
+
+/* BOTÃO DO WHATSAPP */
+
+/* Dá destaque ao botão de contato,
+   usando a cor principal do site e texto branco. */
+.contato-whatsapp {
+    background: var(--green);
+    color: #fff;
+
+    padding: 11px 15px;
+    border-radius: 8px;
+
+    font-size: 10px;
+    font-weight: 700;
+}
+
+
+/* CARDÁPIO */
+
+/* Define o espaço interno da área
+   onde os pratos do restaurante serão apresentados. */
+.cardapio {
+    padding: 0 20px 18px;
+}
+
+
+/* TÍTULO DO CARDÁPIO */
+
+/* Ajusta o tamanho e o espaçamento
+   do título que apresenta a lista de pratos. */
+.cardapio h2 {
+    margin: 4px 0 12px;
+    font-size: 15px;
+}
+
+
+/* ITEM DO CARDÁPIO */
+
+/* Organiza cada prato em três partes:
+   imagem, informações do prato e preço.
+   O grid facilita manter tudo alinhado. */
+.item-menu {
+    display: grid;
+    grid-template-columns: 85px 1fr auto;
+
+    gap: 10px;
+    align-items: center;
+
+    border: 1px solid var(--line);
+    border-radius: 8px;
+
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+
+/* IMAGEM DO PRATO */
+
+/* Define o tamanho da imagem de cada prato
+   e evita que ela fique deformada. */
+.item-menu img {
+    width: 85px;
+    height: 72px;
+    object-fit: cover;
+}
+
+
+/* NOME DO PRATO */
+
+/* Destaca o nome do prato dentro do item do cardápio. */
+.item-menu h3 {
+    font-size: 12px;
+}
+
+
+/* DESCRIÇÃO DO PRATO */
+
+/* Apresenta uma descrição menor abaixo
+   do nome do prato. */
+.item-menu p {
+    font-size: 9px;
+    color: var(--muted);
+    margin-top: 3px;
+}
+
+
+/* PREÇO DO PRATO */
+
+/* Deixa o preço em destaque para que
+   seja fácil encontrá-lo no cardápio. */
+.preço {
+    font-size: 10px;
+    font-weight: 700;
+}
+
+
+/* PERFIL DO USUÁRIO */
+
+/* Cria os blocos principais da área de perfil
+   e das configurações, usando fundo branco,
+   bordas suaves e cantos arredondados. */
+.caixa-perfil,
+.grade-configuracoes {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+
+/* CABEÇALHO DO PERFIL */
+
+/* Organiza a foto e as informações do usuário
+   lado a lado e cria uma divisão visual abaixo delas. */
+.cabecalho-perfil {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 18px;
+    margin-bottom: 4px;
+}
+
+
+/* FOTO DO USUÁRIO */
+
+/* Cria uma área circular para representar
+   a foto ou avatar do usuário. */
+.avatar {
+    width: 60px;
+    height: 60px;
+
+    border-radius: 50%;
+    background: var(--green);
+    color: #fff;
+
+    display: grid;
+    place-items: center;
+
+    font-size: 25px;
+    font-weight: 700;
+}
+
+
+/* NOME DO USUÁRIO */
+
+/* Ajusta o tamanho do nome apresentado
+   no cabeçalho do perfil. */
+.cabecalho-perfil h1 {
+    font-size: 16px;
+}
+
+
+/* DATA DE CADASTRO */
+
+/* Apresenta a data de cadastro de forma menor
+   e com uma cor mais discreta. */
+.cabecalho-perfil p {
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: 4px;
+}
+
+
+/* INFORMAÇÕES DO PERFIL */
+
+/* Organiza cada informação em três espaços:
+   o nome do campo, o valor e a opção de alteração. */
+.linha {
+    display: grid;
+    grid-template-columns: 120px 1fr auto;
+
+    align-items: center;
+
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+
+    font-size: 10px;
+}
+
+
+/* REMOVE A LINHA DO ÚLTIMO ITEM */
+
+/* O último item não precisa de uma borda inferior,
+   deixando o final da lista mais limpo visualmente. */
+.linha:last-child {
+    border-bottom: 0;
+}
+
+
+/* NOME DO CAMPO */
+
+/* Usa uma cor mais suave para diferenciar
+   o nome do campo da informação principal. */
+.linha .label {
+    color: #66716c;
+}
+
+
+/* BOTÃO ALTERAR */
+
+/* Cria um botão discreto para permitir
+   que o usuário altere uma informação do perfil. */
+.editar {
+    border: 1px solid #9bb9a9;
+    background: #fff;
+    color: #14523a;
+
+    padding: 6px 10px;
+    border-radius: 6px;
+
+    font-size: 9px;
+}
+
+
+/* CONFIGURAÇÕES */
+
+/* Divide as opções de configuração em duas colunas,
+   mantendo um espaço uniforme entre os cartões. */
+.grade-configuracoes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+
+/* CADA CONFIGURAÇÃO */
+
+/* Cada configuração recebe sua própria caixa,
+   facilitando a visualização e organização das opções. */
+.configuracao {
+    border: 1px solid var(--line);
+    border-radius: 9px;
+
+    padding: 16px;
+    min-height: 85px;
+}
+
+
+/* NOME DA CONFIGURAÇÃO */
+
+/* Destaca o nome da configuração
+   e cria espaço antes da descrição. */
+.configuracao b {
+    font-size: 11px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+
+/* DESCRIÇÃO DA CONFIGURAÇÃO */
+
+/* Mantém a descrição menor e com uma cor mais clara,
+   deixando o nome da configuração em maior destaque. */
+.configuracao span {
+    font-size: 9px;
+    color: var(--muted);
+}
+
+
+/* ÁREA DO PROJETO */
+
+/* Cria uma área de destaque para apresentar
+   informações sobre o projeto e suas desenvolvedoras. */
+.projeto {
+    background: var(--green);
+    color: #fff;
+
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 12px;
+}
+
+
+/* TEXTO PEQUENO */
+
+/* Ajusta o tamanho das informações secundárias
+   apresentadas dentro da área do projeto. */
+.projeto small {
+    font-size: 9px;
+}
+
+
+/* NOME DAS DESENVOLVEDORAS */
+
+/* Destaca o nome das desenvolvedoras
+   usando um tamanho maior e uma organização em linhas. */
+.projeto h2 {
+    font-size: 18px;
+    line-height: 1.1;
+    margin: 10px 0;
+}
+
+
+/* INFORMAÇÕES DO PROJETO */
+
+/* Define o tamanho e o espaçamento do texto
+   que explica informações sobre o projeto. */
+.projeto p {
+    font-size: 9px;
+    line-height: 1.5;
+}
+
+/* BOTÃO VOLTAR */
+
+/* Cria um botão simples para retornar à página anterior,
+   deixando-o separado visualmente do restante do conteúdo. */
+.voltar {
+    position:static;
+    display: inline-block;
+
+    background: #eef3f0;
+
+    padding: 8px 12px;
+    border-radius: 8px;
+
+    font-size: 10px;
+    margin-bottom: 10px;
+}
+.caixa-busca {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff;
+    border: 1px solid #e5ebe7;
+    border-radius: 9px;
+    padding: 8px 12px;
+    margin: 10px 0 12px;
+}
+
+.caixa-busca input {
+    flex: 1;
+    min-width: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    font: inherit;
+}
+
+.caixa-busca button {
+    padding: 7px 11px;
+    border: 0;
+    border-radius: 6px;
+    background: #004d32;
+    color: #fff;
+    cursor: pointer;
+}
+
+
+/* LOGIN, FAVORITOS E INTERAÇÕES */
+.botao-favorito { position:absolute; top:10px; right:10px; z-index:3; background:#fff; color:#b42335; border:1px solid #e5ebe7; border-radius:50%; width:36px; height:36px; font-size:20px; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 8px #0001; }
+.botao-favorito.esta-favorito { background:#ffe8eb; color:#b42335; }
+.cartao-favoritavel { position:relative; }
+.cartao-favoritavel img { display:block; }
+.pagina-conta { max-width:560px; margin:30px auto; padding:28px; background:#fff; border:1px solid var(--line); border-radius:16px; box-shadow:0 8px 28px #1231; }
+.pagina-conta h1 { margin:0 0 8px; font-size:26px; }
+.pagina-conta p { color:var(--muted); line-height:1.5; }
+.formulario-conta { display:grid; gap:14px; margin-top:22px; }
+.formulario-conta label { display:grid; gap:7px; font-size:13px; font-weight:700; }
+.formulario-conta input { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:8px; box-sizing:border-box; font:inherit; }
+.formulario-conta input:focus { outline:2px solid #a8d9b7; border-color:#75b88a; }
+.botao-verde { display:inline-flex; justify-content:center; padding:12px 16px; border-radius:8px; background:var(--green); color:#fff; font-weight:700; }
+.link-conta { color:var(--green2); text-decoration:underline; }
+.mensagem-conta { padding:10px; border-radius:8px; background:#e5f7e9; color:#14532d; }
+.cartoes-favoritos { margin-top:18px; }
+@media (max-width:700px) { .imagem-destaque { width:45%; height:88%; top:6%; right:-8px; opacity:.9; } .destaque h1 { max-width:58%; font-size:23px; } .destaque p { max-width:56%; } .pagina-conta { margin:16px 0; padding:20px; } .perfil-informacoes { padding:22px; } .perfil-campo p { font-size:17px; } }
+
+
+/* FOTO ÚNICA DO PERFIL */
+.perfil-informacoes {
+    display: block;
+    align-items: initial;
+    padding: 28px;
+    margin-top: 20px;
+}
+.perfil-informacoes .perfil-foto-linha {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin: 0 auto 26px;
+    max-width: 620px;
+}
+.foto-perfil {
+    display: none;
+    width: 112px;
+    height: 112px;
+    flex: 0 0 112px;
+    border-radius: 50%;
+    border: 2px solid #d5e2da;
+    object-fit: cover;
+    background: #eef3f0;
+}
+.perfil-foto-controles {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    min-width: 0;
+}
+.perfil-foto-controles label { color: var(--green); }
+.perfil-foto-controles input { max-width: 100%; font-size: 13px; }
+.perfil-foto-controles small { color: var(--muted); font-size: 12px; }
+.perfil-remover-foto {
+    border: 0;
+    border-radius: 8px;
+    background: var(--green);
+    color: #fff;
+    padding: 10px 18px;
+    cursor: pointer;
+}
+.perfil-informacoes .perfil-campo { width: 100%; box-sizing: border-box; }
+@media (max-width: 600px) {
+    .perfil-informacoes { padding: 18px; }
+    .perfil-informacoes .perfil-foto-linha { align-items: flex-start; gap: 12px; }
+    .foto-perfil { width: 82px; height: 82px; flex-basis: 82px; }
+    .perfil-foto-controles input { width: 100%; }
+}
+
+
+/* Fluxo de entrada e cadastro */
+.modos-conta { display:flex; gap:10px; margin-top:20px; }
+.modo-conta { flex:1; border:1px solid var(--line); border-radius:9px; padding:11px 14px; background:#f3f6f3; color:var(--green); cursor:pointer; font:inherit; font-weight:700; }
+.modo-conta.ativo { background:var(--green); color:#fff; border-color:var(--green); }
+.formulario-conta label[hidden], .formulario-conta input[hidden] { display:none !important; }
+.mensagem-erro { background:#fff0ef !important; color:#9f2525 !important; }
+.perfil-sem-login { text-align:center; padding:18px 10px 24px; }
+.perfil-sem-login h2 { color:var(--green); margin-bottom:10px; }
+.perfil-sem-login p { margin:0 auto 20px; }
+.perfil-acoes-conta { display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:center; margin-top:16px; }
+.botao-contorno { display:inline-flex; justify-content:center; align-items:center; padding:11px 16px; border:1px solid var(--green); border-radius:8px; background:transparent; color:var(--green); font:inherit; font-weight:700; text-decoration:none; cursor:pointer; }
+
+
+/* Ajustes específicos da busca, mantendo a identidade visual original do Sabor SL. */
+.pagina-busca .titulo-busca {
+    font-size: 22px;
+    margin: 14px 0 12px;
+}
+.pagina-busca .caixa-busca {
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 44px;
+    margin: 10px 0 12px;
+}
+.pagina-busca .filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+.pagina-busca .filtro {
+    padding: 8px 14px;
+    font-size: 11px;
+}
+.pagina-busca .contador-resultados {
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 14px;
+}
+.pagina-busca #lista-estabelecimentos {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    align-items: stretch;
+}
+.pagina-busca #lista-estabelecimentos .cartao {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-width: 0;
+    min-height: 220px;
+    padding: 38px 20px 18px;
+    border-radius: 16px;
+    box-sizing: border-box;
+}
+.pagina-busca #lista-estabelecimentos .cartao > img {
+    width: 96px;
+    height: 96px;
+    min-width: 96px;
+    margin: 0 auto 12px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.pagina-busca #lista-estabelecimentos .corpo-cartao {
+    width: 100%;
+    align-items: flex-start;
+    text-align: left;
+}
+.pagina-busca #lista-estabelecimentos .cartao h3,
+.pagina-busca #lista-estabelecimentos .cartao p {
+    text-align: left;
+}
+.pagina-busca #lista-estabelecimentos .informacoes {
+    justify-content: flex-start;
+    width: 100%;
+}
+.pagina-busca #lista-estabelecimentos .botao-favorito {
+    top: 12px;
+    right: 14px;
+    width: 38px;
+    height: 38px;
+    font-size: 23px;
+    background: #fff0f1;
+    border-color: #f4dadd;
+}
+.pagina-busca #lista-estabelecimentos .botao-favorito.esta-favorito {
+    background: #ffe0e4;
+}
+.pagina-busca #lista-estabelecimentos .cartao[hidden] {
+    display: none !important;
+}
+.pagina-busca .mensagem-sem-resultados {
+    color: var(--muted);
+    padding: 14px 0;
+}
+@media (max-width: 900px) {
+    .pagina-busca #lista-estabelecimentos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+@media (max-width: 560px) {
+    .pagina-busca #lista-estabelecimentos {
+        grid-template-columns: 1fr;
+    }
+    .pagina-busca #lista-estabelecimentos .cartao {
+        min-height: 205px;
+    }
+}

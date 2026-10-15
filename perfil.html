@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- nome que aparece na aba do navegador -->
+    <title>Perfil — Sabor SL</title>
+
+    <!--css -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <!-- estrutura principal -->
+    <div class="aplicacao">
+
+        <!-- barra lateral -->
+        <aside class="barra-lateral">
+
+            <!-- logo do site -->
+            <div class="logo-lateral">
+
+                <img
+                    class="imagem-logo-lateral"
+                    src="img/logo.png"
+                    alt="Logo Sabor SL Delivery"
+                >
+
+            </div>
+
+            <!-- menu de navegação -->
+            <nav class="navegacao">
+
+                <!-- página inicial -->
+                <a href="principal.html">
+
+                    <span class="icone-navegacao">🏡</span>
+                    <span>Início</span>
+
+                </a>
+
+                <!-- página de busca -->
+                <a href="buscar.html">
+
+                    <span class="icone-navegacao">⌕</span>
+                    <span>Buscar</span>
+
+                </a>
+
+                <!-- página de perfil -->
+                <a class="ativo" href="perfil.html">
+
+                    <span class="icone-navegacao">👤</span>
+                    <span>Perfil</span>
+
+                </a>
+
+                <!-- página de configurações -->
+
+                <a href="configuracoes.html">
+
+                    <span class="icone-navegacao">⚙</span>
+                    <span>Configurações</span>
+
+                </a>
+
+            </nav>
+
+            <!-- informações do delivery -->
+            <div class="entrega">
+
+                <!-- nome do serviço -->
+                <div class="titulo-entrega">
+
+                    <span>🛵</span>
+                    <strong>Delivery local</strong>
+
+                </div>
+
+                <!-- cidade atendida -->
+                <span>Santa Luzia - PB</span>
+
+            </div>
+
+        </aside>
+
+        <!-- conteúdo principal -->
+        <main class="principal">
+
+            <!-- barra superior -->
+            <div class="barra-superior">
+
+                <!-- botão para voltar -->
+                <a class="voltar" href="principal.html">
+                    ← Voltar
+                </a>
+
+                
+
+            </div>
+
+            <!-- título da página -->
+            <h1 style="font-size: 30px; margin-bottom: 10px;">
+                Meu perfil
+            </h1>
+
+            <!-- descrição do perfil -->
+            <p style="font-size: 16px; color: #6d7772; margin-bottom: 24px;">
+                Informações do usuário.
+            </p>
+
+            <!-- Área de perfil: o conteúdo depende de haver uma sessão salva -->
+            <section class="cartao perfil-informacoes">
+                <div id="perfil-sem-login" class="perfil-sem-login" hidden>
+                    <h2>Entre na sua conta</h2>
+                    <p>Entre ou crie uma conta para salvar suas informações e personalizar seu perfil.</p>
+                    <div class="perfil-acoes-conta">
+                        <a class="botao-verde" href="login.html">Entrar</a>
+                        <a class="botao-contorno" href="login.html?modo=cadastro">Criar conta</a>
+                    </div>
+                </div>
+
+                <div id="perfil-com-login" hidden>
+                    <div class="perfil-foto-linha">
+                        <img id="foto-perfil" class="foto-perfil" alt="Foto do perfil">
+                        <div class="perfil-foto-controles">
+                            <label for="arquivo-foto-perfil"><strong>Foto do perfil</strong></label>
+                            <input id="arquivo-foto-perfil" type="file" accept="image/*">
+                            <button type="button" class="botao-verde perfil-remover-foto" id="remover-foto-perfil">Remover foto</button>
+                            <small>Escolha uma imagem para personalizar seu perfil.</small>
+                        </div>
+                    </div>
+                    <div class="perfil-campo"><strong>Nome</strong><p id="perfil-nome">Usuário Sabor SL</p></div>
+                    <div class="perfil-campo"><strong>E-mail</strong><p id="perfil-email">E-mail do usuário</p></div>
+                    <div class="perfil-campo"><strong>Localização</strong><p>Santa Luzia - PB</p></div>
+                    <div class="perfil-acoes-conta">
+                        <button type="button" class="botao-contorno" id="sair-conta">Sair da conta</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="secao-favoritos-perfil">
+                <h2>♥ Meus favoritos</h2>
+                <p class="descricao-perfil">Os estabelecimentos que você salvou aparecem aqui.</p>
+                <div id="lista-favoritos" class="cartoes cartoes-favoritos"></div>
+                <p id="favoritos-vazio" class="aviso-favoritos">Você ainda não salvou nenhum estabelecimento. Acesse Buscar e toque no coração de um restaurante.</p>
+            </section>
+
+        </main>
+
+    </div>
+
+<script src="js/favoritos.js" defer></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  let usuario = null;
+  try { usuario = JSON.parse(localStorage.getItem("saborSL_usuario") || "null"); } catch (e) {}
+  const semLogin = document.getElementById("perfil-sem-login");
+  const comLogin = document.getElementById("perfil-com-login");
+  const nome = document.getElementById("perfil-nome");
+  const email = document.getElementById("perfil-email");
+  semLogin.hidden = Boolean(usuario);
+  comLogin.hidden = !usuario;
+  if (usuario) {
+    nome.textContent = usuario.nome || "Usuário Sabor SL";
+    email.textContent = usuario.email || "E-mail não informado";
+    const foto = document.getElementById("foto-perfil");
+    const arquivo = document.getElementById("arquivo-foto-perfil");
+    const remover = document.getElementById("remover-foto-perfil");
+    const chaveFoto = "saborSL_fotoPerfil_" + (usuario.email || "usuario");
+    function atualizarFoto(src) {
+      if (src) { foto.src = src; foto.style.display = "block"; }
+      else { foto.removeAttribute("src"); foto.style.display = "block"; }
+    }
+    atualizarFoto(localStorage.getItem(chaveFoto));
+    arquivo.addEventListener("change", function () {
+      const imagem = arquivo.files && arquivo.files[0];
+      if (!imagem) return;
+      if (!imagem.type.startsWith("image/")) { alert("Escolha um arquivo de imagem."); arquivo.value = ""; return; }
+      const leitor = new FileReader();
+      leitor.onload = function () {
+        try { localStorage.setItem(chaveFoto, leitor.result); atualizarFoto(leitor.result); }
+        catch (e) { alert("Essa imagem é muito grande. Escolha uma imagem menor."); }
+      };
+      leitor.readAsDataURL(imagem);
+    });
+    remover.addEventListener("click", function () {
+      localStorage.removeItem(chaveFoto); atualizarFoto(""); arquivo.value = "";
+    });
+    document.getElementById("sair-conta").addEventListener("click", function () {
+      localStorage.removeItem("saborSL_usuario"); window.location.reload();
+    });
+  }
+});
+</script>
+</body>
+
+</html>

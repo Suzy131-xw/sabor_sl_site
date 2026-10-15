@@ -1,0 +1,185 @@
+:root {
+    --fundo: #f7ead4;
+    --verde-escuro: #144614;
+    --bege: #e0f8e6;
+    --branco: #ffffff;
+    --texto: #1a4e43;
+    --cinza: #646464;
+}
+
+/* Aqui retiramos as margens e os espaços padrão
+   que o navegador coloca nos elementos.
+   O box-sizing também facilita o controle dos tamanhos. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* O body é a área geral da página.
+   Definimos a fonte principal, a cor de fundo
+   e garantimos que a página ocupe toda a altura da tela. */
+body {
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    background: var(--fundo);
+    min-height: 100vh;
+}
+
+/* TELA PRINCIPAL
+   Esta seção organiza a tela inicial do site.
+   O conteúdo fica centralizado tanto na horizontal
+   quanto na vertical. */
+.tela-inicial {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 40px 20px;
+
+    /* O degradê cria uma transição suave entre
+       as cores usadas no fundo da página. */
+    background:
+        radial-gradient(
+            circle at top,
+            #f5f8e4 0%,
+            var(--fundo) 45%,
+            var(--bege) 100%
+        );
+
+    /* Impede que os elementos decorativos
+       ultrapassem os limites dessa seção. */
+    overflow: hidden;
+}
+
+/* DETALHES DO FUNDO
+   Este elemento cria uma forma circular decorativa
+   no canto superior esquerdo da tela.
+   O position absolute permite posicioná-lo livremente. */
+.tela-inicial::before {
+    content: "";
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    background: rgba(26, 107, 50, 0.349);
+    top: -220px;
+    left: -180px;
+}
+
+/* Este segundo círculo funciona como outro detalhe visual.
+   Ele fica no canto inferior direito e ajuda a deixar
+   o fundo menos simples. */
+.tela-inicial::after {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background: rgba(26, 107, 50, 0.349);
+    bottom: -180px;
+    right: -120px;
+}
+
+/* CONTEÚDO
+   Esta área reúne os principais elementos da tela,
+   como a logo, o título, o texto e o botão.
+   O z-index mantém o conteúdo acima dos elementos
+   decorativos criados no fundo. */
+.conteudo {
+    width: 100%;
+    max-width: 520px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+/* LOGO
+   Define o tamanho da imagem principal.
+   O border-radius deixa a imagem circular,
+   enquanto o filtro cria uma sombra suave ao redor. */
+.logo {
+    width: 250px;
+    max-width: 75vw;
+    height: auto;
+    margin-bottom: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+
+    /* A sombra ajuda a destacar a logo
+       do restante do fundo. */
+    filter: drop-shadow(
+        0 12px 25px rgba(0, 0, 0, 0.18)
+    );
+}
+
+/* TÍTULO
+   Aqui definimos a aparência do título principal.
+   A cor utiliza uma variável criada no início do CSS,
+   facilitando a alteração da identidade visual do site. */
+h1 {
+    color: var(--texto);
+    font-size: 38px;
+    line-height: 1.15;
+    font-weight: 700;
+    margin-bottom: 16px;
+    letter-spacing: -0.8px;
+}
+
+/* DESCRIÇÃO
+   Este estilo controla o texto apresentado abaixo
+   do título, deixando uma largura confortável para leitura
+   e aumentando o espaçamento entre as linhas. */
+p {
+    max-width: 420px;
+    color: var(--cinza);
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* BOTÃO
+   O botão recebe um tamanho fixo, espaço interno,
+   fundo branco e bordas arredondadas.
+   A sombra ajuda a destacar o botão da página. */
+.botao {
+    width: 190px;
+    padding: 15px 10px;
+    background: var(--branco);
+    color: var(--bege);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 10px;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.18);
+
+    /* A transição deixa a mudança do botão
+       mais suave quando o usuário interage com ele. */
+    transition: 0.25s ease;
+}
+
+/* EFEITO AO PASSAR O MOUSE
+   Quando o usuário passa o mouse sobre o botão,
+   ele sobe um pouco e sua sombra fica mais evidente.
+   A cor de fundo também muda para o verde escuro. */
+.botao:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 25px rgba(0, 0, 0, 0.25);
+
+    background: var(--verde-escuro);
+}
+
+/* EFEITO AO CLICAR
+   Quando o botão é pressionado, ele volta
+   para sua posição original. */
+.botao:active {
+    transform: translateY(0);
+}

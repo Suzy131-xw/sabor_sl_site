@@ -1,0 +1,91 @@
+/* DESENVOLVEDORES */
+
+/* Organiza os cards dos desenvolvedores
+   em colunas para deixar a equipe bem distribuída */
+.caixa-equipe {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin-top: 20px;
+}
+
+/* Define o visual de cada card
+   e organiza as informações no centro */
+.membro-equipe {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background: #ffffff;
+
+    border: 1px solid var(--line);
+
+    border-radius: 15px;
+
+    padding: 25px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+
+    gap: 20px;
+
+    transition: 0.2s;
+}
+
+/* Cria um pequeno movimento no card
+   quando o mouse passa sobre ele */
+.membro-equipe:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* Deixa a foto dos desenvolvedores redonda
+   e mantém a imagem bem ajustada ao espaço */
+.avatar-equipe {
+    width: 180px;
+    height: 180px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    border: 3px solid #e8f4ed;
+}
+
+/* Define o estilo e o tamanho
+   do nome de cada desenvolvedor */
+.membro-equipe h3 {
+    margin: 0;
+
+    font-size: 14px;
+
+    color: var(--text);
+}
+
+/* Organiza o texto que apresenta
+   uma breve descrição do desenvolvedor */
+.membro-equipe p {
+    margin: 0;
+
+    font-size: 11px;
+
+    color: var(--muted);
+}
+
+/* Destaca o contato do desenvolvedor
+   para facilitar sua visualização no card */
+.contato-desenvolvedor {
+    font-size: 11px;
+
+    color: var(--green2);
+
+    font-weight: bold;
+}

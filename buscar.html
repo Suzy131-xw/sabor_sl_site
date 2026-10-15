@@ -1,0 +1,554 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <!-- Configurações básicas da página -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Título da página -->
+    <title>Buscar — Sabor SL</title>
+
+    <!-- Arquivo de estilos CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="pagina-busca">
+
+    <!-- Estrutura principal da aplicação -->
+    <div class="aplicacao">
+
+        <!-- Barra lateral de navegação -->
+        <aside class="barra-lateral">
+
+            <!-- Logo do Sabor SL -->
+            <div class="logo-lateral">
+                <img
+                    class="imagem-logo-lateral"
+                    src="img/logo.png"
+                    alt="Logo Sabor SL Delivery"
+                >
+            </div>
+
+            <!-- Menu de navegação -->
+            <nav class="navegacao">
+
+                <!-- Página inicial -->
+                <a href="principal.html">
+                    <span class="icone-navegacao">🏠</span>
+                    <span>Início</span>
+                </a>
+
+                <!-- Página de busca atual -->
+                <a class="ativo" href="buscar.html">
+                    <span class="icone-navegacao">⌕</span>
+                    <span>Buscar</span>
+                </a>
+
+                <!-- Página de perfil -->
+                <a href="perfil.html">
+                    <span class="icone-navegacao">👤</span>
+                    <span>Perfil</span>
+                </a>
+
+                <!-- Página de configurações -->
+                <a href="configuracoes.html">
+                    <span class="icone-navegacao">⚙</span>
+                    <span>Configurações</span>
+                </a>
+
+            </nav>
+
+            <!-- Informações sobre a área de entrega -->
+            <div class="entrega">
+                <div class="titulo-entrega">
+                    <span>🛵</span>
+                    <strong>Delivery local</strong>
+                </div>
+
+                <span>Santa Luzia - PB</span>
+            </div>
+
+        </aside>
+
+        <!-- Conteúdo principal da página -->
+        <main class="principal">
+
+            <!-- Barra superior com localização -->
+            <div class="barra-superior">
+                <div class="localizacao">
+                    📍 BUSCA EM <b>Santa Luzia - PB</b>
+                </div>
+            </div>
+
+            <!-- Título da seção de busca -->
+            <h1 class="titulo-busca">Buscar restaurantes</h1>
+
+            <!-- Formulário de pesquisa de estabelecimentos -->
+            <form class="caixa-busca" id="form-busca" role="search">
+
+                <!-- Ícone de pesquisa -->
+                <label for="campo-busca" aria-label="Pesquisar">⌕</label>
+
+                <!-- Campo para digitar o nome do estabelecimento -->
+                <input
+                    id="campo-busca"
+                    type="search"
+                    placeholder="Digite o nome do estabelecimento..."
+                    autocomplete="off"
+                >
+
+                <!-- Botão para realizar a busca -->
+                <button type="submit">Buscar</button>
+
+            </form>
+
+            <!-- Filtros por categoria -->
+            <div
+                class="filtros"
+                role="group"
+                aria-label="Filtrar estabelecimentos"
+            >
+
+                <!-- Exibe todas as categorias -->
+                <button
+                    class="filtro ativo"
+                    type="button"
+                    data-categoria="todos"
+                    aria-pressed="true"
+                >
+                    Todos
+                </button>
+
+                <!-- Filtra restaurantes -->
+                <button
+                    class="filtro"
+                    type="button"
+                    data-categoria="restaurantes"
+                    aria-pressed="false"
+                >
+                    Restaurantes
+                </button>
+
+                <!-- Filtra lanches -->
+                <button
+                    class="filtro"
+                    type="button"
+                    data-categoria="lanches"
+                    aria-pressed="false"
+                >
+                    Lanches
+                </button>
+
+                <!-- Filtra sobremesas -->
+                <button
+                    class="filtro"
+                    type="button"
+                    data-categoria="sobremesas"
+                    aria-pressed="false"
+                >
+                    Sobremesas
+                </button>
+
+            </div>
+
+            <!-- Contador atualizado pelo JavaScript -->
+            <p
+                id="contador-resultados"
+                class="contador-resultados"
+                aria-live="polite"
+            >
+                22 estabelecimentos encontrados
+            </p>
+
+            <!-- Lista de cartões dos estabelecimentos -->
+            <div
+                class="cartoes lista-estabelecimentos"
+                id="lista-estabelecimentos"
+            >
+
+                <!-- 1. Casa das Quentinhas -->
+                <a
+                    class="cartao"
+                    data-categoria="restaurantes"
+                    href="estabelecimentos/casa-das-qtnhs.html"
+                >
+                    <img src="logos/casa.jpeg" alt="Casa das Quentinhas">
+
+                    <div class="corpo-cartao">
+                        <h3>Casa das Quentinhas</h3>
+                        <p>Comida caseira</p>
+
+                        <div class="informacoes">
+                            <span>Confira os detalhes</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 2. Gelato do Zé -->
+                <a
+                    class="cartao"
+                    data-categoria="sobremesas"
+                    href="estabelecimentos/gelato-do-ze.html"
+                >
+                    <img src="logos/ze.jpeg" alt="Gelato do Zé">
+
+                    <div class="corpo-cartao">
+                        <h3>Gelato do Zé</h3>
+                        <p>Sorvetes e açaíteria</p>
+
+                        <div class="informacoes">
+                            <span>Confira os detalhes</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 3. Bar da Costela -->
+                <a
+                    class="cartao"
+                    data-categoria="restaurantes"
+                    href="estabelecimentos/bar-da-costela.html"
+                >
+                    <img src="logos/barrr.jpeg" alt="Bar da Costela">
+
+                    <div class="corpo-cartao">
+                        <h3>Bar da Costela</h3>
+                        <p>Carnes e grelhados</p>
+
+                        <div class="informacoes">
+                            <span>Confira os detalhes</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 4. Mega Salgados -->
+                <a
+                    class="cartao"
+                    data-categoria="lanches"
+                    href="estabelecimentos/mega-salgados.html"
+                >
+                    <img src="logos/mega.jpeg" alt="Mega Salgados">
+
+                    <div class="corpo-cartao">
+                        <h3>Mega Salgados</h3>
+                        <p>Salgateria</p>
+
+                        <div class="informacoes">
+                            <span>Confira os detalhes</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 5. Vila Açaí -->
+                <a
+                    class="cartao"
+                    data-categoria="sobremesas"
+                    href="estabelecimentos/vila-acai.html"
+                >
+                    <img src="logos/cl.jpeg" alt="Vila Açaí">
+
+                    <div class="corpo-cartao">
+                        <h3>Vila Açaí</h3>
+                        <p>Açaíteria e sorveteria</p>
+
+                        <div class="informacoes">
+                            <span>Confira os detalhes</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 6. Açaí da Carla -->
+                <a
+                    class="cartao"
+                    data-categoria="sobremesas"
+                    href="estabelecimentos/acai-da-carla.html"
+                >
+                    <img src="carrla.jpeg" alt="Açaí da Carla">
+
+                    <div class="corpo-cartao">
+                        <h3>Açaí da Carla</h3>
+                        <p>Açaíteria e sorveteria</p>
+
+                        <div class="informacoes">
+                            <span>Confira os detalhes</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 7. Big Hangus -->
+                <a
+                    class="cartao"
+                    data-categoria="lanches"
+                    href="estabelecimentos/big-hupes.html"
+                >
+                    <img src="logos/big.jpeg" alt="Big Hangus">
+
+                    <div class="corpo-cartao">
+                        <h3>Big Hangus</h3>
+                        <p>Hambúrgueres e lanches</p>
+
+                        <div class="informacoes">
+                            <span>Confira os detalhes</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 8. Nápoles -->
+                <a
+                    class="cartao"
+                    data-categoria="restaurantes"
+                    href="estabelecimentos/napoles.html"
+                >
+                    <img src="img/Pizza.jpeg" alt="Nápoles">
+
+                    <div class="corpo-cartao">
+                        <h3>Nápoles</h3>
+                        <p>Pizzas e comida italiana</p>
+
+                        <div class="informacoes">
+                            <span>Confira os detalhes</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 9. Pé de Serra -->
+                <a
+                    class="cartao"
+                    data-categoria="restaurantes"
+                    href="estabelecimentos/pe-de-serra.html"
+                >
+                    <img src="img/pedeserra.jpg" alt="Pé de Serra">
+
+                    <div class="corpo-cartao">
+                        <h3>Pé de Serra</h3>
+                        <p>Restaurante</p>
+
+                        <div class="informacoes">
+                            <span>Confira os detalhes</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 10. Quatro Estações -->
+                <a
+                    class="cartao"
+                    data-categoria="restaurantes"
+                    href="estabelecimentos/Quatro-estacoes.html"
+                >
+                    <img src="logos/qatr.jpeg" alt="Quatro Estações">
+
+                    <div class="corpo-cartao">
+                        <h3>Quatro Estações</h3>
+                        <p>Restaurante</p>
+
+                        <div class="informacoes">
+                            <span>Confira os detalhes</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 11. Lucinha Quentinhas -->
+                <a
+                    class="cartao"
+                    data-categoria="restaurantes"
+                    href="estabelecimentos/lucinha-quentinhas.html"
+                >
+                    <img src="img/csdqnths.jpeg" alt="Lucinha Quentinhas">
+
+                    <div class="corpo-cartao">
+                        <h3>Lucinha Quentinhas</h3>
+                        <p>Quentinhas e comida caseira</p>
+
+                        <div class="informacoes">
+                            <span>Confira os detalhes</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 12. João Filho -->
+                <a
+                    class="cartao"
+                    data-categoria="restaurantes"
+                    href="estabelecimentos/joao-filho.html"
+                >
+                    <img src="j.jpeg" alt="João Filho">
+
+                    <div class="corpo-cartao">
+                        <h3>João Filho</h3>
+                        <p>Restaurante</p>
+
+                        <div class="informacoes">
+                            <span>Confira os detalhes</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 13. Salgateria Quero Mais -->
+                <a
+                    class="cartao"
+                    data-categoria="lanches"
+                    href="estabelecimentos/Salgateria-quero-mais.html"
+                >
+                    <img src="logos/qrmais.jpeg" alt="Salgateria Quero Mais">
+
+                    <div class="corpo-cartao">
+                        <h3>Salgateria Quero Mais</h3>
+                        <p>Salgados e lanches</p>
+
+                        <div class="informacoes">
+                            <span>Confira os detalhes</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 14. Luciano Espetos e Petiscos -->
+                <a
+                    class="cartao"
+                    data-categoria="lanches"
+                    href="estabelecimentos/luciano-espetos-e-petiscos.html"
+                >
+                    <img src="l.jpeg" alt="Luciano Espetos e Petiscos">
+
+                    <div class="corpo-cartao">
+                        <h3>Luciano Espetos e Petiscos</h3>
+                        <p>Espetos e petiscos</p>
+
+                        <div class="informacoes">
+                            <span>Confira os detalhes</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 15. Eiita É Bom -->
+                <a
+                    class="cartao"
+                    data-categoria="lanches"
+                    href="estabelecimentos/eiita-e-bom.html"
+                >
+                    <img src="logos/eta.jpeg" alt="Eiita É Bom">
+
+                    <div class="corpo-cartao">
+                        <h3>Eiita É Bom</h3>
+                        <p>Lanches</p>
+
+                        <div class="informacoes">
+                            <span>Confira os detalhes</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 16. Li Açaí -->
+                <a
+                    class="cartao"
+                    data-categoria="sobremesas"
+                    href="estabelecimentos/ki-acai.html"
+                >
+                    <img src="logos/kacai.jpeg" alt="Li Açaí">
+
+                    <div class="corpo-cartao">
+                        <h3>Li Açaí</h3>
+                        <p>Açaíteria</p>
+
+                        <div class="informacoes">
+                            <span>Confira os detalhes</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 17. Doce Amor -->
+                <a
+                    class="cartao"
+                    data-categoria="sobremesas"
+                    href="estabelecimentos/doce-amor.html"
+                >
+                    <img src="logos/dcamor.jpeg" alt="Doce Amor">
+
+                    <div class="corpo-cartao">
+                        <h3>Doce Amor</h3>
+                        <p>Doces e sobremesas</p>
+
+                        <div class="informacoes">
+                            <span>Confira os detalhes</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 18. Due Amori -->
+                <a
+                    class="cartao"
+                    data-categoria="sobremesas"
+                    href="estabelecimentos/due-amori.html"
+                >
+                    <img src="logos/due.jpeg" alt="Due Amori">
+
+                    <div class="corpo-cartao">
+                        <h3>Due Amori</h3>
+                        <p>Doces e sobremesas</p>
+
+                        <div class="informacoes">
+                            <span>Confira os detalhes</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 19. Karamellow Doceria -->
+                <a
+                    class="cartao"
+                    data-categoria="sobremesas"
+                    href="estabelecimentos/karamellow-doceria.html"
+                >
+                    <img src="logos/kk.jpeg" alt="Karamellow Doceria">
+
+                    <div class="corpo-cartao">
+                        <h3>Karamellow Doceria</h3>
+                        <p>Doces e sobremesas</p>
+
+                        <div class="informacoes">
+                            <span>Confira os detalhes</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 20. Delícias de Dindin -->
+                <a
+                    class="cartao"
+                    data-categoria="sobremesas"
+                    href="estabelecimentos/delicias-de-dindin.html"
+                >
+                    <img src="logos/dls.jpeg" alt="Delícias de Dindin">
+
+                    <div class="corpo-cartao">
+                        <h3>Delícias de Dindin</h3>
+                        <p>Dindin e sobremesas</p>
+
+                        <div class="informacoes">
+                            <span>Confira os detalhes</span>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+
+            <!-- Mensagem exibida quando a busca não encontra resultados -->
+            <p
+                id="mensagem-sem-resultados"
+                class="mensagem-sem-resultados"
+                hidden
+            >
+                Nenhum estabelecimento encontrado.
+            </p>
+
+        </main>
+
+    </div>
+
+    <!-- Script responsável pela pesquisa e pelos filtros -->
+    <script src="js/busca.js" defer></script>
+
+    <!-- Script responsável pela funcionalidade de favoritos -->
+    <script src="js/favoritos.js" defer></script>
+
+</body>
+</html>
+```

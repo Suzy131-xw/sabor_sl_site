@@ -1,0 +1,114 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <!-- Configurações básicas da página -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Título exibido na aba do navegador -->
+    <title>Favoritos — Sabor SL</title>
+
+    <!-- Importação do arquivo de estilos CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Estrutura principal da aplicação -->
+    <div class="aplicacao">
+
+        <!-- Barra lateral de navegação -->
+        <aside class="barra-lateral">
+
+            <!-- Logo do Sabor SL -->
+            <div class="logo-lateral">
+                <img
+                    class="imagem-logo-lateral"
+                    src="img/logo.png"
+                    alt="Logo Sabor SL Delivery"
+                >
+            </div>
+
+            <!-- Menu de navegação entre as páginas -->
+            <nav class="navegacao">
+
+                <!-- Link para a página inicial -->
+                <a href="principal.html">
+                    <span class="icone-navegacao">🏠</span>
+                    <span>Início</span>
+                </a>
+
+                <!-- Link para a página de busca -->
+                <a href="buscar.html">
+                    <span class="icone-navegacao">⌕</span>
+                    <span>Buscar</span>
+                </a>
+
+                <!-- Link para a página de perfil -->
+                <a href="perfil.html">
+                    <span class="icone-navegacao">👤</span>
+                    <span>Perfil</span>
+                </a>
+
+                
+                <!-- Link para as configurações -->
+                <a href="configuracoes.html">
+                    <span class="icone-navegacao">⚙️</span>
+                    <span>Configurações</span>
+                </a>
+
+            </nav>
+
+            <!-- Informações sobre a área de entrega -->
+            <div class="entrega">
+                <div class="titulo-entrega">
+                    <span>🛵</span>
+                    <strong>Delivery local</strong>
+                </div>
+
+                <span>Santa Luzia - PB</span>
+            </div>
+
+        </aside>
+
+        <!-- Conteúdo principal da página de favoritos -->
+        <main class="principal">
+
+            <!-- Barra superior com opção de voltar -->
+            <div class="barra-superior">
+                <a class="voltar" href="principal.html">
+                    ← Voltar
+                </a>
+            </div>
+
+            <!-- Título da página -->
+            <h1>♥ Meus favoritos</h1>
+
+            <!-- Descrição da funcionalidade de favoritos -->
+            <p>
+                Guarde aqui os estabelecimentos que você mais gosta.
+            </p>
+
+            <!-- Mensagem exibida quando não existem favoritos salvos -->
+            <p id="favoritos-vazio">
+                Você ainda não adicionou estabelecimentos aos favoritos.
+                Clique no coração de um cartão para guardá-lo aqui.
+            </p>
+
+            <!-- Área onde os cartões de estabelecimentos favoritos serão exibidos -->
+            <div
+                class="cartoes cartoes-favoritos"
+                id="lista-favoritos"
+            ></div>
+
+        </main>
+
+    </div>
+
+    <!-- Importação do JavaScript responsável pelos favoritos -->
+    <script src="js/favoritos.js" defer></script>
+
+</body>
+</html>
