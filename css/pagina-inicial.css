@@ -183,3 +183,28 @@ p {
 .botao:active {
     transform: translateY(0);
 }
+
+
+/* RESPONSIVIDADE DA PÁGINA INICIAL */
+@media (max-width: 767px) {
+
+    h1 {
+        font-size: 28px;
+        line-height: 1.2;
+    }
+
+    p {
+        max-width: 100%;
+        font-size: 15px;
+    }
+
+    .botao {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}

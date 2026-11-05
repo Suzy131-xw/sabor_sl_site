@@ -1384,3 +1384,34 @@ h2 {
         min-height: 205px;
     }
 }
+
+
+/* RESPONSIVIDADE PARA CELULAR */
+@media (max-width: 767px) {
+
+    html, body {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    img, video {
+        max-width: 100%;
+    }
+
+    .pagina-busca #lista-estabelecimentos {
+        grid-template-columns: 1fr;
+    }
+
+    .pagina-busca #lista-estabelecimentos .cartao {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .caixa-equipe {
+        grid-template-columns: 1fr;
+    }
+
+    .avatar-equipe {
+        max-width: 100%;
+    }
+}
