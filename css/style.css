@@ -1415,3 +1415,105 @@ h2 {
         max-width: 100%;
     }
 }
+
+
+/* AJUSTES EXCLUSIVOS PARA CELULAR */
+@media (max-width: 767px) {
+
+    /* Esconde o menu lateral do computador */
+    .barra-lateral {
+        display: none;
+    }
+
+    /* Faz o conteudo ocupar a tela inteira */
+    .aplicacao {
+        display: block;
+        width: 100%;
+    }
+
+    .principal {
+        margin-left: 0;
+        width: 100%;
+        min-width: 0;
+        padding: 16px;
+    }
+
+    /* Organiza a localizacao e os botoes */
+    .barra-superior {
+        height: auto;
+        max-width: none;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 14px;
+        margin-bottom: 20px;
+    }
+
+    .localizacao {
+        font-size: 12px;
+    }
+
+    .acoes {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    .botao-status {
+        min-width: 0;
+        padding: 12px 5px;
+        text-align: center;
+        font-size: 11px;
+        overflow-wrap: anywhere;
+    }
+
+    /* Corrige o banner */
+    .destaque {
+        width: 100%;
+        height: auto;
+        min-height: 250px;
+        padding: 24px 18px;
+        box-sizing: border-box;
+    }
+
+    .destaque h1 {
+        max-width: 60%;
+        font-size: 25px;
+        line-height: 1.15;
+    }
+
+    .destaque p {
+        max-width: 60%;
+        font-size: 12px;
+    }
+
+    .imagem-destaque {
+        position: absolute;
+        width: 38%;
+        height: 100%;
+        top: 0;
+        right: 0;
+        object-fit: cover;
+        border-radius: 45% 0 0 45%;
+    }
+
+    /* Categorias em duas colunas */
+    .categorias {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .categoria {
+        min-width: 0;
+        padding: 14px 10px;
+        box-sizing: border-box;
+    }
+
+    /* Informações em uma coluna */
+    .faixa-informativa {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding: 18px;
+    }
+}
