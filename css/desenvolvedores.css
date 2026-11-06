@@ -89,3 +89,60 @@
 
     font-weight: bold;
 }
+
+/* RESPONSIVIDADE EXCLUSIVA PARA CELULAR */
+@media screen and (max-width: 767px) {
+
+    /* Coloca cada desenvolvedor em uma linha */
+    .caixa-equipe {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) !important;
+        grid-auto-flow: row;
+        gap: 18px;
+        width: 100%;
+        max-width: 100%;
+        margin-top: 20px;
+        box-sizing: border-box;
+    }
+
+    /* Impede os cards de ultrapassarem a tela */
+    .membro-equipe {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        box-sizing: border-box;
+
+        padding: 20px 15px;
+        gap: 12px;
+        border-radius: 15px;
+    }
+
+    /* Ajusta as fotos */
+    .avatar-equipe {
+        width: 120px;
+        height: 120px;
+        min-width: 120px;
+        max-width: 100%;
+        object-fit: cover;
+    }
+
+    /* Ajusta os nomes */
+    .membro-equipe h3 {
+        font-size: 15px;
+        overflow-wrap: anywhere;
+    }
+
+    /* Ajusta as descrições */
+    .membro-equipe p {
+        font-size: 12px;
+        line-height: 1.5;
+        overflow-wrap: anywhere;
+    }
+
+    /* Ajusta os contatos */
+    .contato-desenvolvedor {
+        font-size: 12px;
+        overflow-wrap: anywhere;
+        text-align: center;
+    }
+}
