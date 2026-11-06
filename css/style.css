@@ -1517,3 +1517,32 @@ h2 {
         padding: 18px;
     }
 }
+
+
+/* RESPONSIVIDADE - SOBRE NÓS */
+@media (max-width: 767px) {
+
+    .caixa-equipe {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .caixa-equipe > * {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .avatar-equipe {
+        width: 150px;
+        height: 150px;
+        max-width: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+}
